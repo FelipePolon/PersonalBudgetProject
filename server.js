@@ -1,7 +1,16 @@
 const express = require('express')
 const app = express();
+
+const { envelope } = require('./EnvelopeBudgeting');
+
 const getElementByTitle = (title, elementList) => {
   return elementList.find((element) => {
+    return element.title === title;
+  });
+};
+
+const getIndexByTitle = (title, elementList) => {
+  return elementList.findIndex((element) => {
     return element.title === title;
   });
 };
@@ -41,6 +50,15 @@ app.post('/budget/create', (req, res, next) => {
   }
 });
 
+app.delete('/budget/delete', (req, res, next) => {
+  const foundTitle = getIndexByTitle(req.query.title, envelope);
+  if (foundTitle !== -1) {
+    envelope.slice(0, foundTitle);
+    res.status(204).send()
+  } else {
+    res.status(404).send()
+  }
+});
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
