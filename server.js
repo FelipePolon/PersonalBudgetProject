@@ -60,6 +60,17 @@ app.delete('/budget/delete', (req, res, next) => {
   }
 });
 
+app.put('/budget/update', (req, res, next) => {
+  const foundTitle = getIndexByTitle(req.query.title, envelope);
+  if (foundTitle !== -1) {
+    envelope[foundTitle].envelope= req.query.envelope
+    console.log(envelope[foundTitle])
+    res.status(200).send(envelope[foundTitle])
+  } else {
+    res.status(404).send()
+  }
+});
+
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });
