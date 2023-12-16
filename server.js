@@ -6,6 +6,8 @@ const getElementByTitle = (title, elementList) => {
   });
 };
 
+let cont = 0;
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
@@ -13,12 +15,29 @@ app.use(express.static('public'));
 app.get('/budget', (req, res, next) => {
     res.send('Hello World')
 })
+
+
 app.get('/budget/envelope', (req, res, next) => {
   if(req.query.title) {
     const foundTitle = getElementByTitle(req.query.title, envelope);
     res.send(foundTitle);
   } else {
   res.send(envelope)
+  }
+});
+
+app.post('/budget/create', (req, res, next) => {
+  cont = cont + 1
+  const newBudget = {
+    title: req.query.title,
+    envelope: req.query.envelope,
+    id: cont
+  };
+  if (newBudget.title && newBudget.envelope) {
+    envelope.push(newBudget);
+    res.send(newBudget);
+  } else {
+    res.status(404).send();
   }
 });
 
