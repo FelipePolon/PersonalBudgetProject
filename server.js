@@ -21,6 +21,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
+
+const cors = require('cors');
+app.use(cors());
+
 app.get('/budget', (req, res, next) => {
     res.send('Hello World')
 })
