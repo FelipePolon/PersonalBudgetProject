@@ -10,12 +10,31 @@
         <br>
         <label for="envelope-value-to-update">Envelope Value:</label>
         <input id="envelope-value-to-update" type="number" min="0" value="">
+        <button id="update-envelope">Update Your Envelope</button>
     </div>
-    <div>
-    <button id="update-envelope">Update Your Envelope</button>
+    <div id="update-message">
+
     </div>
     <br>
+    <div class="transfer">
+        <h2>Transfer the budget from one envelope to another:</h2>
+        <label for="from-envelope">From (envelope title): </label>
+        <input id="from-envelope" value="">
+        <br>
+        <label for="to-envelope">To (envelope title): </label>
+        <input id="to-envelope" value="">
+        <br>
+        <label for="transfer-value">Transfer Value:</label>
+        <input id="transfer-value" type="number" min="0" value="">
+        <br>
+        <button id="transfer-Button">Transfer</button>
+    </div>
+    <div id="transfer-message">
+
+    </div>
     <nav>
         <a href="index.html">Back</a>
     </nav>
+    <script src="update-budget.js"> 
+    </script>
 </body>
