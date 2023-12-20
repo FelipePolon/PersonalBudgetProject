@@ -11,9 +11,9 @@ they can just click "Get All Envelopes" to view everything in one just once.
 The other option would be through the Postman API app and directly place in it the endpoints that were created in the server file to obtain the response of requests. 
 Below is the link to download the app as well as a list of endpoints that were created as an example to help in user experience:
 
-- Postman API: https://www.postman.com/downloads/
-- List with endpoints:
+Postman API: https://www.postman.com/downloads/
 
+List with endpoints:
 - Get: localhost:3000/budget/envelope?title=Example1
 - Post: localhost:3000/budget/create/?title=Example1&envelope=2500
 - Put (to update): localhost:3000/budget/update?title=Example2&envelope=10000
